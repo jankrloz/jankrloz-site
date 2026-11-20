@@ -470,6 +470,27 @@
   color: var(--accent-text);
 }
 
+.stack-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+}
+
+.stack-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+  border: 1px solid var(--rule);
+  background: rgba(63, 0, 255, 0.06);
+  padding: 0.24rem 0.52rem;
+  border-radius: 0;
+}
+
 /* Chronology Rows */
 .chrono-row {
   display: grid;

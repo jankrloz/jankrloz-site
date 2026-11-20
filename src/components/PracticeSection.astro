@@ -50,6 +50,11 @@ import { PRACTICE_CATEGORIES } from '../data/career';
                 >
                   <div class="practice-drawer-inner">
                     {item.summary}
+                    <ul class="stack-badges" aria-label="Technologies and skills">
+                      {item.stack.map((tag) => (
+                        <li class="stack-badge">{tag}</li>
+                      ))}
+                    </ul>
                     <span class="practice-outcome">→ {item.outcome}</span>
                   </div>
                 </div>

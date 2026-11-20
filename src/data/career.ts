@@ -5,6 +5,7 @@ export interface PracticeItem {
   meta: string;
   summary: string;
   outcome: string;
+  stack: string[];
 }
 
 export interface PracticeCategory {
@@ -61,6 +62,16 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
           'Defined and co-led cross-team implementation of a KrakenD AI Gateway with centralized governance, security, and cost controls, and a Dynamic LLM Router that selects model tiers across Anthropic, OpenAI, Google Vertex AI, and AWS Bedrock.',
         outcome:
           'Unified enterprise LLM access, routing policies, and multi-provider cost control.',
+        stack: [
+          'KrakenD',
+          'AI Gateways',
+          'Dynamic LLM Routing',
+          'AWS Bedrock',
+          'Anthropic',
+          'OpenAI',
+          'Google Vertex AI',
+          'TypeScript',
+        ],
       },
       {
         index: '02',
@@ -71,6 +82,16 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
           'Co-led cross-team design and implementation with Platform and ML teams for an internal MLOps Platform. Defined golden-path rails for in-house model training, inference deployment, a Feature Store, observability, and automated evaluations.',
         outcome:
           'Accelerated production ML delivery with standard governance and evaluation gates.',
+        stack: [
+          'MLOps',
+          'Model-as-a-Service',
+          'Feature Store',
+          'Automated Evals',
+          'Python',
+          'AWS',
+          'Observability',
+          'CI/CD',
+        ],
       },
       {
         index: '03',
@@ -81,6 +102,16 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
           'Founded and built an inner-source AI development lifecycle (AI-DLC) Agent Meta-Harness across 8 deterministic phases, reusable Skills, and MCP integrations for Claude Code, Cursor, and agentic IDEs, with multi-agent design review.',
         outcome:
           'Embedded deterministic architecture gates and C4 checks into AI-assisted delivery.',
+        stack: [
+          'AI-DLC',
+          'Agent Meta-Harness',
+          'Claude Code',
+          'Cursor',
+          'Antigravity',
+          'Agent Skills',
+          'MCP',
+          'C4 Model',
+        ],
       },
       {
         index: '04',
@@ -91,6 +122,17 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
           'Built initial Golden Paths, IDP foundations, internal CLI, CI/CD standards, Clean and Hexagonal workspace templates, and the Kafka Events SDK. Designed end-to-end and lead cross-team implementation of a unified CMDB, Software Catalog, and Scorecards MVP (in progress).',
         outcome:
           'Aligned self-service delivery with service ownership, scorecards, and audit readiness.',
+        stack: [
+          'IDP',
+          'Next.js',
+          'NestJS',
+          'Vercel',
+          'TypeScript',
+          'PostgreSQL',
+          'Temporal.io',
+          'Apache Kafka',
+          'GitLab CI',
+        ],
       },
       {
         index: '05',
@@ -100,6 +142,16 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         summary:
           'Founded and ran the Architecture Center of Excellence. Owned engineering Standards, ADRs, References, the Enterprise Tech Radar, the Architecture Companion learning program, core modernization architecture, and federated API and Integrations Gateway design.',
         outcome: 'Established collaborative architecture reviews and durable technical standards.',
+        stack: [
+          'Enterprise Architecture',
+          'Tech Radar',
+          'ADRs / RFCs',
+          'DDD',
+          'Hexagonal Architecture',
+          'Clean Architecture',
+          'KrakenD',
+          'Auth0 / IAM',
+        ],
       },
     ],
   },
@@ -116,6 +168,16 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         summary:
           'Architected and shipped an automated cloud topology and disaster recovery discovery platform that ingests 9 sources to map 15,800+ AWS resources, 1M+ dependency edges, and 420 production workloads.',
         outcome: 'Shipped in 25 calendar days vs. a multi-quarter estimate.',
+        stack: [
+          'AWS',
+          'TypeScript',
+          'Python',
+          'Graph Modeling',
+          'Cloud Topology',
+          'DRP Discovery',
+          'GitLab',
+          'New Relic',
+        ],
       },
       {
         index: '07',
@@ -125,6 +187,15 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         summary:
           'Defined target PCI-DSS CDE isolation strategy and AWS Well-Architected boundaries for payments spin-off and audit readiness. Contributed to DRP strategy, AWS region standardization decisions, multi-region replication design, and workload criticality tiers for 200+ TB across three regions.',
         outcome: 'Established regulatory readiness and clear multi-region replication governance.',
+        stack: [
+          'PCI-DSS',
+          'CNBV Readiness',
+          'Multi-Region DRP',
+          'AWS Well-Architected',
+          'Route 53 ARC',
+          'AWS S3',
+          'Aurora PostgreSQL',
+        ],
       },
       {
         index: '08',
@@ -134,6 +205,15 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         summary:
           'Defined layered infrastructure-as-code standards, CI/CD guardrails, and AWS Well-Architected baselines across 20+ AWS accounts to enforce account isolation, security, and repeatable delivery.',
         outcome: 'Established consistent cloud governance across product and platform engineering.',
+        stack: [
+          'AWS Well-Architected',
+          'OpenTofu',
+          'Terraform',
+          'Env0',
+          'ECS / Fargate',
+          'AWS Lambda',
+          'GitLab CI/CD',
+        ],
       },
     ],
   },
@@ -150,6 +230,16 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         summary:
           'Built a 100% local control plane across Desktop, Web, TUI, and CLI to inspect AI coding skills, primitives, sessions, and token counts for Claude Code, Cursor, Codex, and Gemini CLI, with package-manager delegated updates.',
         outcome: 'Published at github.com/jankrloz/harness-control.',
+        stack: [
+          'TypeScript',
+          'React 19',
+          'Vite+',
+          'Tauri v2',
+          'Hono',
+          'Claude Code',
+          'Antigravity',
+          'Agent Skills',
+        ],
       },
       {
         index: '10',
@@ -159,6 +249,7 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         summary:
           'Built an open-source polyglot CLI and package fleet orchestrator that checks real-time OSV.dev vulnerability data across package ecosystems with privilege-safe execution.',
         outcome: 'Published at github.com/jankrloz/vanguard.',
+        stack: ['Python', 'CLI', 'OSV.dev', 'Supply-Chain Security', 'Homebrew'],
       },
       {
         index: '11',
@@ -168,6 +259,7 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         summary:
           'Speaker and featured live demo author presenting enterprise AI-assisted software architecture, automated code refactoring, and developer productivity patterns.',
         outcome: 'Demonstrated production-grade agentic engineering workflows on stage.',
+        stack: ['Amazon Q', 'AWS Bedrock', 'Public Speaking', 'AI-Assisted Architecture'],
       },
     ],
   },

@@ -50,6 +50,11 @@ import {
                   <span class="item-meta">{item.meta}</span>
                 </div>
                 <p class="cv-entry-body">{item.summary}</p>
+                <ul class="stack-badges" aria-label="Technologies and skills">
+                  {item.stack.map((tag) => (
+                    <li class="stack-badge">{tag}</li>
+                  ))}
+                </ul>
                 <div class="cv-entry-outcome">→ {item.outcome}</div>
               </div>
             ))}
