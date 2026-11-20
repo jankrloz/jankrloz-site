@@ -8,6 +8,46 @@ export interface PracticeItem {
   stack: string[];
 }
 
+const THESVG_ICONS: Record<string, string> = {
+  Anthropic: 'https://thesvg.org/icons/anthropic/dark.svg',
+  OpenAI: 'https://thesvg.org/icons/openai/dark.svg',
+  'Google Vertex AI': 'https://thesvg.org/icons/google-cloud/default.svg',
+  'AWS Bedrock': 'https://thesvg.org/icons/aws/mono.svg',
+  AWS: 'https://thesvg.org/icons/aws/mono.svg',
+  'AWS S3': 'https://thesvg.org/icons/aws/mono.svg',
+  'AWS Lambda': 'https://thesvg.org/icons/aws/mono.svg',
+  'ECS / Fargate': 'https://thesvg.org/icons/aws/mono.svg',
+  'Route 53 ARC': 'https://thesvg.org/icons/aws/mono.svg',
+  'Amazon Q': 'https://thesvg.org/icons/aws/mono.svg',
+  TypeScript: 'https://thesvg.org/icons/typescript/default.svg',
+  Python: 'https://thesvg.org/icons/python/default.svg',
+  'Claude Code': 'https://thesvg.org/icons/claude/default.svg',
+  Cursor: 'https://thesvg.org/icons/cursor/dark.svg',
+  'Next.js': 'https://thesvg.org/icons/nextjs/default.svg',
+  NestJS: 'https://thesvg.org/icons/nestjs/default.svg',
+  Vercel: 'https://thesvg.org/icons/vercel/dark.svg',
+  PostgreSQL: 'https://thesvg.org/icons/postgresql/default.svg',
+  'Aurora PostgreSQL': 'https://thesvg.org/icons/postgresql/default.svg',
+  'Temporal.io': 'https://thesvg.org/icons/temporal/default.svg',
+  'Apache Kafka': 'https://thesvg.org/icons/apache-kafka/dark.svg',
+  'GitLab CI': 'https://thesvg.org/icons/gitlab/default.svg',
+  'GitLab CI/CD': 'https://thesvg.org/icons/gitlab/default.svg',
+  GitLab: 'https://thesvg.org/icons/gitlab/default.svg',
+  'Auth0 / IAM': 'https://thesvg.org/icons/auth0/default.svg',
+  'New Relic': 'https://thesvg.org/icons/new-relic/default.svg',
+  OpenTofu: 'https://thesvg.org/icons/opentofu/default.svg',
+  Terraform: 'https://thesvg.org/icons/terraform/default.svg',
+  'React 19': 'https://thesvg.org/icons/react/default.svg',
+  'Vite+': 'https://thesvg.org/icons/vite/default.svg',
+  'Tauri v2': 'https://thesvg.org/icons/tauri/default.svg',
+  Hono: 'https://thesvg.org/icons/hono/default.svg',
+  Homebrew: 'https://thesvg.org/icons/homebrew/default.svg',
+};
+
+export function getStackIconUrl(label: string): string | undefined {
+  return THESVG_ICONS[label];
+}
+
 export interface PracticeCategory {
   roman: string;
   heading: string;

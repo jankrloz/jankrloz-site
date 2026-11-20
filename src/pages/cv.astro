@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import {
   CERTIFICATIONS,
   CHRONOLOGY,
+  getStackIconUrl,
   PRACTICE_CATEGORIES,
   PROFILE,
   STACK_GROUPS,
@@ -51,9 +52,26 @@ import {
                 </div>
                 <p class="cv-entry-body">{item.summary}</p>
                 <ul class="stack-badges" aria-label="Technologies and skills">
-                  {item.stack.map((tag) => (
-                    <li class="stack-badge">{tag}</li>
-                  ))}
+                  {item.stack.map((tag) => {
+                    const iconUrl = getStackIconUrl(tag);
+                    return (
+                      <li class="stack-badge">
+                        {iconUrl && (
+                          <img
+                            class="stack-badge-icon"
+                            src={iconUrl}
+                            width="13"
+                            height="13"
+                            loading="lazy"
+                            alt=""
+                            aria-hidden="true"
+                            data-invert={tag === 'Next.js' ? 'true' : undefined}
+                          />
+                        )}
+                        <span>{tag}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
                 <div class="cv-entry-outcome">→ {item.outcome}</div>
               </div>

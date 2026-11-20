@@ -480,6 +480,9 @@
 }
 
 .stack-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.36rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   line-height: 1.2;
@@ -489,6 +492,17 @@
   background: rgba(63, 0, 255, 0.06);
   padding: 0.24rem 0.52rem;
   border-radius: 0;
+}
+
+.stack-badge-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.stack-badge-icon[data-invert='true'] {
+  filter: invert(1);
 }
 
 /* Chronology Rows */

@@ -1,5 +1,5 @@
 ---
-import { PRACTICE_CATEGORIES } from '../data/career';
+import { getStackIconUrl, PRACTICE_CATEGORIES } from '../data/career';
 ---
 
 <div id="practice">
@@ -51,9 +51,26 @@ import { PRACTICE_CATEGORIES } from '../data/career';
                   <div class="practice-drawer-inner">
                     {item.summary}
                     <ul class="stack-badges" aria-label="Technologies and skills">
-                      {item.stack.map((tag) => (
-                        <li class="stack-badge">{tag}</li>
-                      ))}
+                      {item.stack.map((tag) => {
+                        const iconUrl = getStackIconUrl(tag);
+                        return (
+                          <li class="stack-badge">
+                            {iconUrl && (
+                              <img
+                                class="stack-badge-icon"
+                                src={iconUrl}
+                                width="13"
+                                height="13"
+                                loading="lazy"
+                                alt=""
+                                aria-hidden="true"
+                                data-invert={tag === 'Next.js' ? 'true' : undefined}
+                              />
+                            )}
+                            <span>{tag}</span>
+                          </li>
+                        );
+                      })}
                     </ul>
                     <span class="practice-outcome">→ {item.outcome}</span>
                   </div>
