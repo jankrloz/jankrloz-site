@@ -188,7 +188,7 @@ export const CHRONOLOGY: ChronologyItem[] = [
   },
   {
     index: '03',
-    role: 'Solutions Architect',
+    role: 'Solutions Architect & Platform Lead',
     organization: 'Konfío',
     tenure: 'Feb 2023 — Aug 2023',
   },
