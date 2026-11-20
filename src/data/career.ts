@@ -42,7 +42,7 @@ export const PROFILE = {
   cvPdf: '/JuanCarlosNavarrete_CV.pdf',
   cvHtml: '/cv/',
   thesis:
-    '11+ years in software engineering (4+ years in architecture leadership), building AWS Well-Architected cloud foundations, Internal Developer Platforms, and enterprise AI platforms including AI Gateways, MLOps, and an AI-DLC Agent Meta-Harness.',
+    '11+ years in software engineering (~4 years in architecture leadership), building AWS Well-Architected cloud foundations, Internal Developer Platforms, and enterprise AI platforms including AI Gateways, MLOps, and an AI-DLC Agent Meta-Harness.',
   education: 'Computer Systems Engineering (Coursework) — IPN · ESCOM (2012–2016)',
 } as const;
 
@@ -184,22 +184,28 @@ export const CHRONOLOGY: ChronologyItem[] = [
     index: '02',
     role: 'Lead Solutions Architect',
     organization: 'Konfío',
-    tenure: 'May 2024 — Apr 2026',
+    tenure: 'Aug 2023 — Apr 2026',
   },
   {
     index: '03',
     role: 'Solutions Architect',
     organization: 'Konfío',
-    tenure: 'May 2022 — May 2024',
+    tenure: 'Feb 2023 — Aug 2023',
   },
   {
     index: '04',
-    role: 'Senior Software Engineer / Tech Lead',
+    role: 'Technical Lead',
     organization: 'Konfío',
-    tenure: 'Jan 2019 — Apr 2022',
+    tenure: 'Aug 2021 — Feb 2023',
   },
   {
     index: '05',
+    role: 'Senior Software Engineer',
+    organization: 'Konfío',
+    tenure: 'Jun 2019 — Aug 2021',
+  },
+  {
+    index: '06',
     role: 'Full-Stack & Front-End Developer',
     organization: 'Dada Room · Deli & Go · Petdate · Renka',
     tenure: 'Apr 2015 — Oct 2018',
