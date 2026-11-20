@@ -42,7 +42,7 @@ export const PROFILE = {
   cvPdf: '/JuanCarlosNavarrete_CV.pdf',
   cvHtml: '/cv/',
   thesis:
-    '11+ years in software engineering (4+ years in architecture leadership), building AWS Well-Architected cloud foundations, Internal Developer Platforms, and enterprise AI platforms including AI Gateways, MLOps, and AI-DLC.',
+    '11+ years in software engineering (4+ years in architecture leadership), building AWS Well-Architected cloud foundations, Internal Developer Platforms, and enterprise AI platforms including AI Gateways, MLOps, and an AI-DLC Agent Meta-Harness.',
   education: 'Computer Systems Engineering (Coursework) — IPN · ESCOM (2012–2016)',
 } as const;
 
@@ -74,11 +74,11 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
       },
       {
         index: '03',
-        title: 'AI-DLC Workflow, Skills, and MCP',
+        title: 'AI-DLC Agent Meta-Harness, Skills, and MCP',
         categoryLabel: 'AI Engineering · Founded and Built',
         meta: '8 Phases · 18 Principles',
         summary:
-          'Founded and built an inner-source AI development lifecycle (AI-DLC) workflow across 8 deterministic phases, reusable Skills, and MCP integrations for Claude Code, Cursor, and agentic IDEs, with multi-agent design review.',
+          'Founded and built an inner-source AI development lifecycle (AI-DLC) Agent Meta-Harness across 8 deterministic phases, reusable Skills, and MCP integrations for Claude Code, Cursor, and agentic IDEs, with multi-agent design review.',
         outcome:
           'Embedded deterministic architecture gates and C4 checks into AI-assisted delivery.',
       },
@@ -211,7 +211,7 @@ export const STACK_GROUPS = [
     index: '01',
     label: 'AI Platforms & Engineering',
     items:
-      'Enterprise AI Gateways (KrakenD), Dynamic LLM Routing (Anthropic, OpenAI, Vertex AI, AWS Bedrock), MLOps (Model-as-a-Service, Feature Store, Automated Evals), AI-DLC Workflows, Skills, MCP, Claude Code, Cursor',
+      'Enterprise AI Gateways (KrakenD), Dynamic LLM Routing (Anthropic, OpenAI, Vertex AI, AWS Bedrock), MLOps (Model-as-a-Service, Feature Store, Automated Evals), AI-DLC Agent Meta-Harness, Skills, MCP, Claude Code, Cursor',
   },
   {
     index: '02',
