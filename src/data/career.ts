@@ -42,7 +42,7 @@ export const PROFILE = {
   cvPdf: '/JuanCarlosNavarrete_CV.pdf',
   cvHtml: '/cv/',
   thesis:
-    'Designing AI-native engineering lifecycles, internal developer platforms, enterprise architecture governance, and resilient cloud foundations for regulated financial systems.',
+    'Designing enterprise AI gateways, MLOps platforms, AI-native engineering lifecycles, internal developer platforms, and AWS Well-Architected cloud foundations for regulated financial systems.',
   education: 'Computer Systems Engineering — IPN · ESCOM (2012–2016)',
 } as const;
 
@@ -54,33 +54,53 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
     items: [
       {
         index: '01',
-        title: 'Enterprise AI Development Lifecycle',
+        title: 'Enterprise AI Gateway & Dynamic LLM Router',
+        categoryLabel: 'AI Platforms · Production',
+        meta: 'KrakenD · Multi-Provider',
+        summary:
+          'Designed and led an enterprise AI Gateway on KrakenD with centralized governance, security, rate limiting, and cost optimization—including a Dynamic LLM Router automatically selecting model tiers across Anthropic, OpenAI, Google Vertex AI, and AWS Bedrock.',
+        outcome:
+          'Unified enterprise LLM access, routing policies, and multi-provider cost control.',
+      },
+      {
+        index: '02',
+        title: 'MLOps Platform (Model-as-a-Service)',
+        categoryLabel: 'MLOps · Internal Platform',
+        meta: 'Feature Store · Evals',
+        summary:
+          'Co-led architecture and cross-team delivery with Platform and ML engineering for an internal MLOps Platform (Model-as-a-Service), defining golden-path rails for in-house training, inference deployment, a Feature Store, observability, and automated evaluations.',
+        outcome:
+          'Accelerated production ML delivery with standardized governance and evaluation gates.',
+      },
+      {
+        index: '03',
+        title: 'AI-DLC Harness, Skills & MCP',
         categoryLabel: 'AI Engineering · Inner-Source',
         meta: '8 Phases · 18 Principles',
         summary:
-          'Created an inner-source AI development lifecycle harness spanning 8 deterministic phases—from research and domain modeling to adversarial multi-agent design review and verification—grounded in 18 software principles across agentic IDEs.',
+          'Created an inner-source AI development lifecycle (AI-DLC) harness spanning 8 deterministic phases, reusable Skills, and MCP integrations across Claude Code, Cursor, and agentic IDEs with adversarial multi-agent design review.',
         outcome:
           'Embedded deterministic architecture gates and C4 enforcement into AI-assisted delivery.',
       },
       {
-        index: '02',
-        title: 'Internal Developer Platform & Software Catalog',
-        categoryLabel: 'Platform Engineering · In-Flight',
+        index: '04',
+        title: 'Internal Developer Platform (IDP) & CI/CD',
+        categoryLabel: 'Platform Engineering · Architecture',
         meta: '5-Plane Topology',
         summary:
-          'Designed a five-plane self-service developer platform and graph-based software catalog unifying service ownership, maturity scorecards, workflow orchestration, and audit readiness.',
+          'Designed a five-plane self-service IDP, CI/CD standardization, and graph-based software catalog unifying service ownership, maturity scorecards, workflow orchestration, and audit readiness.',
         outcome:
           'Aligned engineering velocity with continuous compliance and service discoverability.',
       },
       {
-        index: '03',
-        title: 'Architecture Center & Core Modernization',
-        categoryLabel: 'Enterprise Architecture · FinTech',
-        meta: 'Org-Wide Governance',
+        index: '05',
+        title: 'Architecture Center of Excellence & Tech Radar',
+        categoryLabel: 'Enterprise Architecture · Governance',
+        meta: 'ADRs · RFCs · Standards',
         summary:
-          'Founded and matured the Architecture Center to steward org-wide technology strategies, solution designs, and architectural decisions—guiding monolith decomposition, API federation, unified identity, and modular banking capabilities.',
+          'Founded and matured the Architecture Center of Excellence—stewarding the Enterprise Tech Radar, architecture governance, collaborative reviews, ADRs/RFCs, monolith decomposition, API federation, and unified identity.',
         outcome:
-          'Institutionalized collaborative architecture reviews and durable technical standards.',
+          'Institutionalized durable technical standards across core banking and platform domains.',
       },
     ],
   },
@@ -90,31 +110,31 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
     scope: 'Cloud · Disaster Recovery · Governance',
     items: [
       {
-        index: '04',
-        title: 'Multi-Account Cloud & DR Discovery Catalog',
+        index: '06',
+        title: 'Multi-Account Cloud & DRP Discovery Catalog',
         categoryLabel: 'Cloud Governance · Production',
         meta: '25 days · 1M+ Edges',
         summary:
-          'Architected and delivered an automated cloud topology and disaster recovery discovery platform ingesting 9 discovery sources to map 15,800+ AWS resources, 1M+ dependency edges, and 420 production workloads.',
+          'Architected and delivered an automated cloud topology and disaster recovery (DRP) discovery platform ingesting 9 discovery sources to map 15,800+ AWS resources, 1M+ dependency edges, and 420 production workloads.',
         outcome: 'Shipped in 25 calendar days vs. multi-quarter estimate (~90% SDLC compression).',
       },
       {
-        index: '05',
-        title: 'Multi-Region Banking Disaster Recovery',
-        categoryLabel: 'Cloud Resilience · Target Architecture',
+        index: '07',
+        title: 'Multi-Region Banking DRP & Regulatory Isolation',
+        categoryLabel: 'Cloud Resilience · Banking Compliance',
         meta: '3 Regions · RTO 2–6m',
         summary:
-          'Evaluated warm-standby production footprints across hundreds of serverless functions, data stores, and 200+ TB of object storage, and architected an active-active failover topology across three cloud regions.',
+          'Evaluated warm-standby production footprints across hundreds of serverless functions, data stores, and 200+ TB of storage; architected active-active 3-region DRP and PCI-DSS / CNBV / SOX isolation boundaries under AWS Well-Architected standards.',
         outcome:
-          'Engineered for 2–6 minute recovery time objectives under strict regulatory oversight.',
+          'Engineered for 2–6 minute recovery time objectives under strict banking oversight.',
       },
       {
-        index: '06',
-        title: 'Cloud Foundation & IaC Governance',
+        index: '08',
+        title: 'AWS Well-Architected & IaC Governance',
         categoryLabel: 'Cloud Infrastructure · Enterprise Scale',
         meta: '20+ AWS Accounts',
         summary:
-          'Defined layered infrastructure-as-code standards and automated environment provisioning across 20+ AWS accounts to enforce account isolation, security baselines, and repeatable delivery.',
+          'Defined layered infrastructure-as-code standards, CI/CD guardrails, and AWS Well-Architected baselines across 20+ AWS accounts to enforce account isolation, security, and repeatable delivery.',
         outcome: 'Established consistent cloud governance across product and platform engineering.',
       },
     ],
@@ -125,7 +145,7 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
     scope: 'Security Tooling · Industry Showcase',
     items: [
       {
-        index: '07',
+        index: '09',
         title: 'Vanguard — Supply-Chain Security Orchestrator',
         categoryLabel: 'Open Source · Security',
         meta: 'OSV.dev · Polyglot CLI',
@@ -134,7 +154,7 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         outcome: 'Published at github.com/jankrloz/vanguard.',
       },
       {
-        index: '08',
+        index: '10',
         title: 'AWS Summit Mexico City 2024',
         categoryLabel: 'Public Speaking · Live Demo',
         meta: 'Featured Showcase',
