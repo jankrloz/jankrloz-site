@@ -28,5 +28,5 @@ This repository is **PUBLIC**. Every file, route, comment, and commit is publicl
 ## 3. Toolchain & Verification
 
 - **Install:** `aube install --frozen-lockfile`
-- **Dev:** `vp run dev -- --host 0.0.0.0 --port 4321` *(do not use bare `vp dev` / `vp build`)*
+- **Dev:** `vp run dev -- --host 0.0.0.0 --port 4321` _(do not use bare `vp dev` / `vp build`)_
 - **Verify:** `vp check && aube exec astro check && vp run build`
