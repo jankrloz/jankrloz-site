@@ -55,52 +55,52 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
       {
         index: '01',
         title: 'Enterprise AI Gateway & Dynamic LLM Router',
-        categoryLabel: 'AI Platforms · Production',
+        categoryLabel: 'AI Platforms · Co-Led Cross-Team',
         meta: 'KrakenD · Multi-Provider',
         summary:
-          'Designed and led an enterprise AI Gateway on KrakenD with centralized governance, security, rate limiting, and cost optimization—including a Dynamic LLM Router automatically selecting model tiers across Anthropic, OpenAI, Google Vertex AI, and AWS Bedrock.',
+          'Defined and co-led (with the Architecture team) cross-team implementation of a KrakenD-based AI Gateway with centralized governance, security, and cost optimization—featuring a Dynamic LLM Router selecting model tiers across Anthropic, OpenAI, Google Vertex AI, and AWS Bedrock.',
         outcome:
           'Unified enterprise LLM access, routing policies, and multi-provider cost control.',
       },
       {
         index: '02',
         title: 'MLOps Platform (Model-as-a-Service)',
-        categoryLabel: 'MLOps · Internal Platform',
+        categoryLabel: 'MLOps · Co-Led Cross-Team',
         meta: 'Feature Store · Evals',
         summary:
-          'Co-led architecture and cross-team delivery with Platform and ML engineering for an internal MLOps Platform (Model-as-a-Service), defining golden-path rails for in-house training, inference deployment, a Feature Store, observability, and automated evaluations.',
+          'Co-led cross-team design and implementation (Architecture, Platform, ML) for an internal MLOps Platform (Model-as-a-Service), defining golden-path rails for in-house training, inference deployment, a Feature Store, observability, and automated evaluations.',
         outcome:
           'Accelerated production ML delivery with standardized governance and evaluation gates.',
       },
       {
         index: '03',
         title: 'AI-DLC Harness, Skills & MCP',
-        categoryLabel: 'AI Engineering · Inner-Source',
+        categoryLabel: 'AI Engineering · Founded & Built',
         meta: '8 Phases · 18 Principles',
         summary:
-          'Created an inner-source AI development lifecycle (AI-DLC) harness spanning 8 deterministic phases, reusable Skills, and MCP integrations across Claude Code, Cursor, and agentic IDEs with adversarial multi-agent design review.',
+          'Founded and executed an inner-source AI development lifecycle (AI-DLC) harness spanning 8 deterministic phases, reusable Skills, and MCP integrations across Claude Code, Cursor, and agentic IDEs with adversarial multi-agent design review.',
         outcome:
           'Embedded deterministic architecture gates and C4 enforcement into AI-assisted delivery.',
       },
       {
         index: '04',
-        title: 'Internal Developer Platform (IDP) & CI/CD',
-        categoryLabel: 'Platform Engineering · Architecture',
-        meta: '5-Plane Topology',
+        title: 'IDP, Golden Paths, Events SDK & CI/CD',
+        categoryLabel: 'Platform Engineering · Founded & Built',
+        meta: 'CLI · Templates · Kafka',
         summary:
-          'Designed a five-plane self-service IDP, CI/CD standardization, and graph-based software catalog unifying service ownership, maturity scorecards, workflow orchestration, and audit readiness.',
+          'Defined and built initial Golden Paths, IDP foundations, internal CLI, CI/CD standardization, Clean & Hexagonal workspace templates, and the Events SDK standardizing event-driven architecture on Kafka.',
         outcome:
-          'Aligned engineering velocity with continuous compliance and service discoverability.',
+          'Established repeatable self-service delivery and consistent API/Events conventions.',
       },
       {
         index: '05',
         title: 'Architecture Center of Excellence & Tech Radar',
-        categoryLabel: 'Enterprise Architecture · Governance',
-        meta: 'ADRs · RFCs · Standards',
+        categoryLabel: 'Enterprise Architecture · Founded & Executed',
+        meta: 'Standards · Companion · Governance',
         summary:
-          'Founded and matured the Architecture Center of Excellence—stewarding the Enterprise Tech Radar, architecture governance, collaborative reviews, ADRs/RFCs, monolith decomposition, API federation, and unified identity.',
+          'Founded and executed the Architecture Center of Excellence—owning Standards, ADRs, References, Enterprise Tech Radar, the Architecture Companion learning program, modernization architecture, and federated API/Integrations Gateway design.',
         outcome:
-          'Institutionalized durable technical standards across core banking and platform domains.',
+          'Institutionalized collaborative architecture reviews and durable technical standards.',
       },
     ],
   },
@@ -120,13 +120,12 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
       },
       {
         index: '07',
-        title: 'Multi-Region Banking DRP & Regulatory Isolation',
-        categoryLabel: 'Cloud Resilience · Banking Compliance',
-        meta: '3 Regions · RTO 2–6m',
+        title: 'PCI Strategy & Multi-Region DRP Strategy',
+        categoryLabel: 'Cloud Resilience · Strategy & Decisions',
+        meta: 'PCI-DSS · 3 Regions · Criticality',
         summary:
-          'Evaluated warm-standby production footprints across hundreds of serverless functions, data stores, and 200+ TB of storage; architected active-active 3-region DRP and PCI-DSS / CNBV / SOX isolation boundaries under AWS Well-Architected standards.',
-        outcome:
-          'Engineered for 2–6 minute recovery time objectives under strict banking oversight.',
+          'Defined PCI architectural strategy and AWS Well-Architected isolation boundaries; contributed to DRP strategy, region-homologation decisions, multi-region data/service replication model, and workload criticality tiers (200+ TB across three regions).',
+        outcome: 'Established regulatory readiness and clear multi-region replication governance.',
       },
       {
         index: '08',
