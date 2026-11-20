@@ -42,8 +42,8 @@ export const PROFILE = {
   cvPdf: '/JuanCarlosNavarrete_CV.pdf',
   cvHtml: '/cv/',
   thesis:
-    '11+ years building enterprise AI gateways, MLOps platforms, AI-DLC workflows, and AWS Well-Architected cloud foundations. I lead engineering teams, cross-functional programs, and org-wide architecture strategy.',
-  education: 'Computer Systems Engineering — IPN · ESCOM (2012–2016)',
+    '11+ years in software engineering (4+ years in architecture leadership), building AWS Well-Architected cloud foundations, Internal Developer Platforms, and enterprise AI platforms including AI Gateways, MLOps, and AI-DLC.',
+  education: 'Computer Systems Engineering (Coursework) — IPN · ESCOM (2012–2016)',
 } as const;
 
 export const PRACTICE_CATEGORIES: PracticeCategory[] = [
@@ -58,7 +58,7 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         categoryLabel: 'AI Platforms · Co-Led Cross-Team',
         meta: 'KrakenD · Multi-Provider',
         summary:
-          'Defined and co-led cross-team implementation of a KrakenD AI Gateway with centralized governance, security, and cost controls. Built a Dynamic LLM Router that selects model tiers across Anthropic, OpenAI, Google Vertex AI, and AWS Bedrock.',
+          'Defined and co-led cross-team implementation of a KrakenD AI Gateway with centralized governance, security, and cost controls, and a Dynamic LLM Router that selects model tiers across Anthropic, OpenAI, Google Vertex AI, and AWS Bedrock.',
         outcome:
           'Unified enterprise LLM access, routing policies, and multi-provider cost control.',
       },
@@ -84,11 +84,11 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
       },
       {
         index: '04',
-        title: 'IDP, Software Catalog, and Golden Paths',
-        categoryLabel: 'Platform Engineering · Designed and Leading',
-        meta: 'CMDB · Scorecards · CI/CD',
+        title: 'IDP Foundations, Software Catalog, and Golden Paths',
+        categoryLabel: 'Platform Engineering · Shipped & In Progress',
+        meta: 'CMDB (In Progress) · CLI · Kafka SDK',
         summary:
-          'Designed end-to-end and currently lead cross-team implementation of a unified CMDB, Software Catalog, and Maturity Scorecards platform. Defined and built initial Golden Paths, IDP foundations, internal CLI, CI/CD standards, Clean and Hexagonal workspace templates, and the Kafka Events SDK.',
+          'Built initial Golden Paths, IDP foundations, internal CLI, CI/CD standards, Clean and Hexagonal workspace templates, and the Kafka Events SDK. Designed end-to-end and lead cross-team implementation of a unified CMDB, Software Catalog, and Scorecards MVP (in progress).',
         outcome:
           'Aligned self-service delivery with service ownership, scorecards, and audit readiness.',
       },
@@ -110,20 +110,20 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
     items: [
       {
         index: '06',
-        title: 'Multi-Account Cloud & DRP Discovery Catalog',
+        title: 'Multi-Account Cloud and DRP Discovery Catalog',
         categoryLabel: 'Cloud Governance · Production',
         meta: '25 days · 1M+ Edges',
         summary:
-          'Architected and delivered an automated cloud topology and disaster recovery (DRP) discovery platform ingesting 9 discovery sources to map 15,800+ AWS resources, 1M+ dependency edges, and 420 production workloads.',
-        outcome: 'Shipped in 25 calendar days vs. multi-quarter estimate (~90% SDLC compression).',
+          'Architected and shipped an automated cloud topology and disaster recovery discovery platform that ingests 9 sources to map 15,800+ AWS resources, 1M+ dependency edges, and 420 production workloads.',
+        outcome: 'Shipped in 25 calendar days vs. a multi-quarter estimate.',
       },
       {
         index: '07',
-        title: 'PCI Strategy & Multi-Region DRP Strategy',
-        categoryLabel: 'Cloud Resilience · Strategy & Decisions',
+        title: 'PCI-DSS Isolation and Multi-Region DRP Strategy',
+        categoryLabel: 'Cloud Resilience · Strategy and Decisions',
         meta: 'PCI-DSS · 3 Regions · Criticality',
         summary:
-          'Defined PCI architectural strategy and AWS Well-Architected isolation boundaries; contributed to DRP strategy, region-homologation decisions, multi-region data/service replication model, and workload criticality tiers (200+ TB across three regions).',
+          'Defined target PCI-DSS CDE isolation strategy and AWS Well-Architected boundaries for payments spin-off and audit readiness. Contributed to DRP strategy, AWS region standardization decisions, multi-region replication design, and workload criticality tiers for 200+ TB across three regions.',
         outcome: 'Established regulatory readiness and clear multi-region replication governance.',
       },
       {
@@ -196,29 +196,43 @@ export const CHRONOLOGY: ChronologyItem[] = [
     index: '04',
     role: 'Senior Software Engineer / Tech Lead',
     organization: 'Konfío',
-    tenure: '2019 — Apr 2022',
+    tenure: 'Jan 2019 — Apr 2022',
   },
   {
     index: '05',
     role: 'Full-Stack & Front-End Developer',
     organization: 'Dada Room · Deli & Go · Petdate · Renka',
-    tenure: '2015 — Oct 2018',
+    tenure: 'Apr 2015 — Oct 2018',
   },
 ];
+
+export const STACK_GROUPS = [
+  {
+    index: '01',
+    label: 'AI Platforms & Engineering',
+    items:
+      'Enterprise AI Gateways (KrakenD), Dynamic LLM Routing (Anthropic, OpenAI, Vertex AI, AWS Bedrock), MLOps (Model-as-a-Service, Feature Store, Automated Evals), AI-DLC Workflows, Skills, MCP, Claude Code, Cursor',
+  },
+  {
+    index: '02',
+    label: 'Architecture & Governance',
+    items:
+      'Architecture Center of Excellence, Enterprise Tech Radar, ADRs/RFCs, Domain-Driven Design (DDD), Hexagonal & Clean Architecture, Event-Driven Architecture (Apache Kafka), API Federation, Auth0 / IAM (OAuth 2.0 / JWT), PCI-DSS & CNBV Audit Readiness',
+  },
+  {
+    index: '03',
+    label: 'Cloud, Platform (IDP) & Languages',
+    items:
+      'AWS Well-Architected, Multi-Account Governance, Multi-Region DRP Strategy, Internal Developer Platforms (IDP), Golden Paths, Software Catalogs, CI/CD (GitLab, Fargate), OpenTofu / Terraform, Observability, TypeScript/Node.js, Python, PostgreSQL, Docker',
+  },
+] as const;
 
 export const CERTIFICATIONS: CertificationItem[] = [
   {
     index: '01',
     name: 'AWS Certified Solutions Architect – Associate',
     issuer: 'Amazon Web Services Training and Certification',
-    validity: 'Jun 2021 — Jun 2024',
+    validity: 'Jun 2021 — Jun 2024 (Expired)',
     credentialUrl: 'https://www.credly.com/go/lTeyPh92R5byvb4yME96rg',
-  },
-  {
-    index: '02',
-    name: 'Notion Advanced Quiz',
-    issuer: 'Notion (Skilljar)',
-    validity: '2026',
-    credentialUrl: 'https://verify.skilljar.com/c/zr2eziwenj8t',
   },
 ];

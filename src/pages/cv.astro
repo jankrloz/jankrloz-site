@@ -1,6 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
-import { CERTIFICATIONS, CHRONOLOGY, PRACTICE_CATEGORIES, PROFILE } from '../data/career';
+import {
+  CERTIFICATIONS,
+  CHRONOLOGY,
+  PRACTICE_CATEGORIES,
+  PROFILE,
+  STACK_GROUPS,
+} from '../data/career';
 ---
 
 <Base
@@ -21,12 +27,7 @@ import { CERTIFICATIONS, CHRONOLOGY, PRACTICE_CATEGORIES, PROFILE } from '../dat
         </div>
       </div>
 
-      <p class="cv-summary">
-        11+ years of software engineering and architecture leadership across regulated banking,
-        enterprise AI gateways, MLOps platforms, and AI-DLC workflows. I lead engineering and
-        architecture teams directly, and guide cross-functional initiatives, platform programs, and
-        org-wide technology strategy.
-      </p>
+      <p class="cv-summary">{PROFILE.thesis}</p>
     </header>
 
     {
@@ -87,6 +88,28 @@ import { CERTIFICATIONS, CHRONOLOGY, PRACTICE_CATEGORIES, PROFILE } from '../dat
     <section class="monograph-section" data-motion-section>
       <aside class="section-rail">
         <div class="rail-roman" aria-hidden="true">V</div>
+        <h2 class="rail-title">Technical Stack</h2>
+        <div class="rail-meta">AI · Platforms · Cloud</div>
+      </aside>
+
+      <div class="cv-panel">
+        {
+          STACK_GROUPS.map((group) => (
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <span class="item-num">{group.index}</span>
+                <h3 class="cv-entry-title">{group.label}</h3>
+              </div>
+              <p class="cv-entry-body">{group.items}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="monograph-section" data-motion-section>
+      <aside class="section-rail">
+        <div class="rail-roman" aria-hidden="true">VI</div>
         <h2 class="rail-title">Education</h2>
         <div class="rail-meta">Academic Foundation</div>
       </aside>
@@ -96,7 +119,7 @@ import { CERTIFICATIONS, CHRONOLOGY, PRACTICE_CATEGORIES, PROFILE } from '../dat
           <div class="cv-entry-head">
             <span class="item-num">01</span>
             <h3 class="cv-entry-title">
-              Computer Systems Engineering (Ingeniería en Sistemas Computacionales)
+              Computer Systems Engineering (Coursework)
             </h3>
             <span class="item-meta">2012 — 2016</span>
           </div>
@@ -109,9 +132,9 @@ import { CERTIFICATIONS, CHRONOLOGY, PRACTICE_CATEGORIES, PROFILE } from '../dat
 
     <section class="monograph-section" data-motion-section>
       <aside class="section-rail">
-        <div class="rail-roman" aria-hidden="true">VI</div>
+        <div class="rail-roman" aria-hidden="true">VII</div>
         <h2 class="rail-title">Certifications</h2>
-        <div class="rail-meta">Verified Cloud Credentials</div>
+        <div class="rail-meta">Cloud Credentials</div>
       </aside>
 
       <div class="cv-panel">
