@@ -42,7 +42,7 @@ export const PROFILE = {
   cvPdf: '/JuanCarlosNavarrete_CV.pdf',
   cvHtml: '/cv/',
   thesis:
-    '11+ years designing enterprise AI gateways, MLOps platforms, AI-DLC harnesses, and AWS Well-Architected cloud foundations—leading teams, cross-functional initiatives, and org-wide architecture strategies directly and indirectly.',
+    '11+ years building enterprise AI gateways, MLOps platforms, AI-DLC workflows, and AWS Well-Architected cloud foundations. I lead engineering teams, cross-functional programs, and org-wide architecture strategy.',
   education: 'Computer Systems Engineering — IPN · ESCOM (2012–2016)',
 } as const;
 
@@ -54,11 +54,11 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
     items: [
       {
         index: '01',
-        title: 'Enterprise AI Gateway & Dynamic LLM Router',
+        title: 'Enterprise AI Gateway and Dynamic LLM Router',
         categoryLabel: 'AI Platforms · Co-Led Cross-Team',
         meta: 'KrakenD · Multi-Provider',
         summary:
-          'Defined and co-led (with the Architecture team) cross-team implementation of a KrakenD-based AI Gateway with centralized governance, security, and cost optimization—featuring a Dynamic LLM Router selecting model tiers across Anthropic, OpenAI, Google Vertex AI, and AWS Bedrock.',
+          'Defined and co-led cross-team implementation of a KrakenD AI Gateway with centralized governance, security, and cost controls. Built a Dynamic LLM Router that selects model tiers across Anthropic, OpenAI, Google Vertex AI, and AWS Bedrock.',
         outcome:
           'Unified enterprise LLM access, routing policies, and multi-provider cost control.',
       },
@@ -68,39 +68,38 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         categoryLabel: 'MLOps · Co-Led Cross-Team',
         meta: 'Feature Store · Evals',
         summary:
-          'Co-led cross-team design and implementation (Architecture, Platform, ML) for an internal MLOps Platform (Model-as-a-Service), defining golden-path rails for in-house training, inference deployment, a Feature Store, observability, and automated evaluations.',
+          'Co-led cross-team design and implementation with Platform and ML teams for an internal MLOps Platform. Defined golden-path rails for in-house model training, inference deployment, a Feature Store, observability, and automated evaluations.',
         outcome:
-          'Accelerated production ML delivery with standardized governance and evaluation gates.',
+          'Accelerated production ML delivery with standard governance and evaluation gates.',
       },
       {
         index: '03',
-        title: 'AI-DLC Harness, Skills & MCP',
-        categoryLabel: 'AI Engineering · Founded & Built',
+        title: 'AI-DLC Workflow, Skills, and MCP',
+        categoryLabel: 'AI Engineering · Founded and Built',
         meta: '8 Phases · 18 Principles',
         summary:
-          'Founded and executed an inner-source AI development lifecycle (AI-DLC) harness spanning 8 deterministic phases, reusable Skills, and MCP integrations across Claude Code, Cursor, and agentic IDEs with adversarial multi-agent design review.',
+          'Founded and built an inner-source AI development lifecycle (AI-DLC) workflow across 8 deterministic phases, reusable Skills, and MCP integrations for Claude Code, Cursor, and agentic IDEs, with multi-agent design review.',
         outcome:
-          'Embedded deterministic architecture gates and C4 enforcement into AI-assisted delivery.',
+          'Embedded deterministic architecture gates and C4 checks into AI-assisted delivery.',
       },
       {
         index: '04',
-        title: 'IDP, Software Catalog & Golden Paths',
-        categoryLabel: 'Platform Engineering · Designed & Leading',
+        title: 'IDP, Software Catalog, and Golden Paths',
+        categoryLabel: 'Platform Engineering · Designed and Leading',
         meta: 'CMDB · Scorecards · CI/CD',
         summary:
-          'Designed end-to-end and leading (as Architecture) cross-team implementation of a unified CMDB, Software Catalog, and Maturity Scorecards platform (in progress); defined and built initial Golden Paths, IDP foundations, internal CLI, CI/CD, Clean/Hexagonal workspace templates, and the Kafka Events SDK.',
+          'Designed end-to-end and currently lead cross-team implementation of a unified CMDB, Software Catalog, and Maturity Scorecards platform. Defined and built initial Golden Paths, IDP foundations, internal CLI, CI/CD standards, Clean and Hexagonal workspace templates, and the Kafka Events SDK.',
         outcome:
-          'Aligned repeatable self-service delivery with service ownership, scorecards, and audit readiness.',
+          'Aligned self-service delivery with service ownership, scorecards, and audit readiness.',
       },
       {
         index: '05',
-        title: 'Architecture Center of Excellence & Tech Radar',
-        categoryLabel: 'Enterprise Architecture · Founded & Executed',
+        title: 'Architecture Center of Excellence and Tech Radar',
+        categoryLabel: 'Enterprise Architecture · Founded and Executed',
         meta: 'Standards · Companion · Governance',
         summary:
-          'Founded and executed the Architecture Center of Excellence—owning Standards, ADRs, References, Enterprise Tech Radar, the Architecture Companion learning program, modernization architecture, and federated API/Integrations Gateway design.',
-        outcome:
-          'Institutionalized collaborative architecture reviews and durable technical standards.',
+          'Founded and ran the Architecture Center of Excellence. Owned engineering Standards, ADRs, References, the Enterprise Tech Radar, the Architecture Companion learning program, core modernization architecture, and federated API and Integrations Gateway design.',
+        outcome: 'Established collaborative architecture reviews and durable technical standards.',
       },
     ],
   },
@@ -145,20 +144,20 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
     items: [
       {
         index: '09',
-        title: 'harness-control — AI Harness Control Plane',
+        title: 'harness-control: AI Coding Control Plane',
         categoryLabel: 'Open Source · AI Tooling',
         meta: 'TypeScript · Tauri v2 · 100% Local',
         summary:
-          'Created a 100% local unified control plane (Desktop, Web, TUI, CLI) for AI coding harness skills, primitives, sessions, and token telemetry across Claude Code, Cursor, Codex, and Gemini CLI with manager-delegated lifecycle actions.',
+          'Built a 100% local control plane across Desktop, Web, TUI, and CLI to inspect AI coding skills, primitives, sessions, and token counts for Claude Code, Cursor, Codex, and Gemini CLI, with package-manager delegated updates.',
         outcome: 'Published at github.com/jankrloz/harness-control.',
       },
       {
         index: '10',
-        title: 'Vanguard — Supply-Chain Security Orchestrator',
+        title: 'Vanguard: Supply-Chain Security Orchestrator',
         categoryLabel: 'Open Source · Security',
         meta: 'OSV.dev · Polyglot CLI',
         summary:
-          'Created an open-source polyglot CLI and package fleet orchestrator integrating real-time vulnerability intelligence across package ecosystems with privilege-safe execution.',
+          'Built an open-source polyglot CLI and package fleet orchestrator that checks real-time OSV.dev vulnerability data across package ecosystems with privilege-safe execution.',
         outcome: 'Published at github.com/jankrloz/vanguard.',
       },
       {
