@@ -1,19 +1,18 @@
 # AGENTS.md — Public Personal Website (`jankrloz/jankrloz-site`)
 
-This repository is the **public personal website** for **JC Navarrete (`jankrloz`)**, deployed to `https://jankrloz.vercel.app/` and mounted as a Git submodule (`site/`) inside the private hub repository.
+This repository contains the **public personal website** for **JC Navarrete (`jankrloz`)**.
 
 ---
 
-## 1. Public-Only Scope & Data Restrictions (Non-Negotiable)
+## 1. Public-Only Scope (Non-Negotiable)
 
 This repository is **PUBLIC**. Every file, route, comment, and commit is publicly visible.
 
-- **Allowed Routes & Assets Only:**
+- **Allowed Scope Only:**
   - Public monograph (`/`), public CV (`/cv/`), public writing feed (`/writing/`), and sanitized public PDF (`public/JuanCarlosNavarrete_CV.pdf`).
-- **Strictly Prohibited Content:**
-  - Never add private hub dashboards (`/hub/`), internal career research, compensation benchmarks, job-search pipelines, or session handoffs.
-  - Never expose internal company project codenames, internal document/ticket IDs (`SD-*`, `ADR-*`, `AR-*`), external contractor engagements, or non-public financials.
-  - Never import or reference files outside this repository root (no `../docs/`, `../research/`, `../cv/`).
+- **Strictly Prohibited:**
+  - Keep this repository strictly self-contained: never add non-public pages, internal workflows, internal company project codenames, internal document/ticket IDs, external contractor engagements, or non-public financials.
+  - Never import or reference paths outside this repository root.
 
 ---
 
