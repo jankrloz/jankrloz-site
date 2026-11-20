@@ -1,0 +1,21 @@
+{
+  "name": "Juan Carlos Navarrete — jankrloz",
+  "short_name": "jankrloz",
+  "description": "Head of Architecture · Platform Engineering, AI-DLC & Coreless Banking Systems",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07070C",
+  "theme_color": "#3F00FF",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

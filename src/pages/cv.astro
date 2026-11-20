@@ -1,0 +1,146 @@
+---
+import Base from '../layouts/Base.astro';
+import { CERTIFICATIONS, CHRONOLOGY, PRACTICE_CATEGORIES, PROFILE } from '../data/career';
+---
+
+<Base
+  title={`Curriculum Vitae — ${PROFILE.fullName} (${PROFILE.alias})`}
+  description="Curriculum Vitae of Juan Carlos Navarrete (JC Navarrete / jankrloz), Head of Architecture."
+  showManifold={false}
+>
+  <article class="cv-sheet">
+    <header class="cv-header" data-motion-hero>
+      <div class="cv-header-top">
+        <div>
+          <h1 class="cv-name">{PROFILE.fullName}</h1>
+          <div class="cv-nickname">{PROFILE.role} · {PROFILE.location}</div>
+        </div>
+        <div class="cv-actions no-print">
+          <a href={PROFILE.cvPdf} class="bar-link-primary" download>Download PDF ↓</a>
+          <button type="button" class="cv-print-btn" onclick="window.print()">Print ↗</button>
+        </div>
+      </div>
+
+      <p class="cv-summary">
+        Over a decade of software engineering and architecture leadership across regulated financial
+        services, multi-account cloud systems, and AI-native engineering lifecycles—translating
+        complex distributed systems into resilient, governed, and developer-friendly platforms.
+      </p>
+    </header>
+
+    {
+      PRACTICE_CATEGORIES.map((category) => (
+        <section class="monograph-section" data-motion-section>
+          <aside class="section-rail">
+            <div class="rail-roman" aria-hidden="true">
+              {category.roman}
+            </div>
+            <h2 class="rail-title">{category.heading}</h2>
+            <div class="rail-meta">{category.scope}</div>
+          </aside>
+
+          <div class="cv-panel">
+            {category.items.map((item) => (
+              <div class="cv-entry">
+                <div class="cv-entry-head">
+                  <span class="item-num">{item.index}</span>
+                  <h3 class="cv-entry-title">{item.title}</h3>
+                  <span class="item-meta">{item.meta}</span>
+                </div>
+                <p class="cv-entry-body">{item.summary}</p>
+                <div class="cv-entry-outcome">→ {item.outcome}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+
+    <section class="monograph-section" data-motion-section>
+      <aside class="section-rail">
+        <div class="rail-roman" aria-hidden="true">IV</div>
+        <h2 class="rail-title">Chronology</h2>
+        <div class="rail-meta">Career Progression · 2015–Present</div>
+      </aside>
+
+      <ul class="chronology-list">
+        {
+          CHRONOLOGY.map((item) => (
+            <li class="chrono-item">
+              <div class="chrono-row">
+                <span class="item-num" aria-hidden="true">
+                  {item.index}
+                </span>
+                <span class="item-title-wrap">
+                  <span class="item-title">{item.role}</span>
+                  <span class="item-sub">{item.organization}</span>
+                </span>
+                <span class="item-meta">{item.tenure}</span>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="monograph-section" data-motion-section>
+      <aside class="section-rail">
+        <div class="rail-roman" aria-hidden="true">V</div>
+        <h2 class="rail-title">Education</h2>
+        <div class="rail-meta">Academic Foundation</div>
+      </aside>
+
+      <div class="cv-panel">
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <span class="item-num">01</span>
+            <h3 class="cv-entry-title">
+              Computer Systems Engineering (Ingeniería en Sistemas Computacionales)
+            </h3>
+            <span class="item-meta">2012 — 2016</span>
+          </div>
+          <p class="cv-entry-body">
+            Instituto Politécnico Nacional · Escuela Superior de Cómputo (IPN · ESCOM) · Mexico City
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="monograph-section" data-motion-section>
+      <aside class="section-rail">
+        <div class="rail-roman" aria-hidden="true">VI</div>
+        <h2 class="rail-title">Certifications</h2>
+        <div class="rail-meta">Verified Cloud Credentials</div>
+      </aside>
+
+      <div class="cv-panel">
+        {
+          CERTIFICATIONS.map((cert) => (
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <span class="item-num">{cert.index}</span>
+                <h3 class="cv-entry-title">{cert.name}</h3>
+                <span class="item-meta">{cert.validity}</span>
+              </div>
+              <p class="cv-entry-body">
+                {cert.issuer} ·{' '}
+                <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer">
+                  Verify Credential ↗
+                </a>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <footer class="colophon">
+      <div class="colophon-note">{PROFILE.location} · {PROFILE.alias}</div>
+      <div class="colophon-links">
+        <a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>
+        <a href={PROFILE.github} target="_blank" rel="noopener noreferrer">github.com/jankrloz</a>
+        <a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/jankrloz</a>
+      </div>
+    </footer>
+  </article>
+</Base>

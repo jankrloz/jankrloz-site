@@ -1,0 +1,65 @@
+---
+import Hero from '../components/Hero.astro';
+import PracticeSection from '../components/PracticeSection.astro';
+import Chronology from '../components/Chronology.astro';
+import Colophon from '../components/Colophon.astro';
+import Base from '../layouts/Base.astro';
+---
+
+<Base>
+  <Hero />
+  <PracticeSection />
+  <Chronology />
+  <Colophon />
+</Base>
+
+<script>
+  import { animate, inView, scroll } from 'motion';
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reducedMotion) {
+    const heroContent = document.querySelector<HTMLElement>('[data-motion-hero] .hero-content');
+    if (heroContent) {
+      animate(
+        heroContent,
+        {
+          opacity: [0.01, 1],
+          transform: ['translateY(14px)', 'translateY(0px)'],
+          filter: ['blur(6px)', 'blur(0px)'],
+        },
+        { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+      );
+
+      // Subtle scroll-linked fade/lift on hero content
+      scroll(
+        animate(heroContent, {
+          opacity: [1, 0.25],
+          transform: ['translateY(0px)', 'translateY(-28px)'],
+        }),
+        {
+          target: document.querySelector('[data-motion-hero]') as HTMLElement,
+          offset: ['start start', 'end start'],
+        },
+      );
+    }
+
+    const sections = document.querySelectorAll<HTMLElement>('[data-motion-section]');
+    sections.forEach((section) => {
+      inView(
+        section,
+        () => {
+          animate(
+            section,
+            {
+              opacity: [0.08, 1],
+              transform: ['translateY(14px)', 'translateY(0px)'],
+            },
+            { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+          );
+        },
+        { amount: 0.12 },
+      );
+    });
+  }
+</script>

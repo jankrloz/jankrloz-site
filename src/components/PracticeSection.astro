@@ -1,0 +1,115 @@
+---
+import { PRACTICE_CATEGORIES } from '../data/career';
+---
+
+<div id="practice">
+  {
+    PRACTICE_CATEGORIES.map((category, catIdx) => (
+      <section
+        class="monograph-section"
+        aria-labelledby={`cat-heading-${catIdx}`}
+        data-motion-section
+      >
+        <aside class="section-rail">
+          <div class="rail-roman" aria-hidden="true">
+            {category.roman}
+          </div>
+          <h2 class="rail-title" id={`cat-heading-${catIdx}`}>
+            {category.heading}
+          </h2>
+          <div class="rail-meta">{category.scope}</div>
+        </aside>
+
+        <ul class="practice-list">
+          {category.items.map((item, itemIdx) => {
+            const isDefaultOpen = catIdx === 0 && itemIdx === 0;
+            const panelId = `practice-panel-${catIdx}-${itemIdx}`;
+            return (
+              <li class="practice-item">
+                <button
+                  type="button"
+                  class="practice-trigger"
+                  aria-expanded={isDefaultOpen ? 'true' : 'false'}
+                  aria-controls={panelId}
+                  data-practice-trigger
+                >
+                  <span class="item-num" aria-hidden="true">
+                    {item.index}
+                  </span>
+                  <span class="item-title-wrap">
+                    <span class="item-title">{item.title}</span>
+                    <span class="item-sub">{item.categoryLabel}</span>
+                  </span>
+                  <span class="item-meta">{item.meta}</span>
+                </button>
+                <div
+                  id={panelId}
+                  class="practice-drawer"
+                  hidden={!isDefaultOpen}
+                  style={isDefaultOpen ? undefined : 'height: 0px; opacity: 0;'}
+                >
+                  <div class="practice-drawer-inner">
+                    {item.summary}
+                    <span class="practice-outcome">→ {item.outcome}</span>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))
+  }
+</div>
+
+<script>
+  import { animate } from 'motion';
+
+  function initPracticeIndex() {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const triggers = document.querySelectorAll<HTMLButtonElement>('[data-practice-trigger]');
+
+    triggers.forEach((trigger) => {
+      const panelId = trigger.getAttribute('aria-controls');
+      if (!panelId) return;
+      const drawer = document.getElementById(panelId);
+      if (!drawer) return;
+
+      trigger.addEventListener('click', () => {
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+        const nextExpanded = !isExpanded;
+        trigger.setAttribute('aria-expanded', String(nextExpanded));
+
+        if (reducedMotion) {
+          drawer.hidden = !nextExpanded;
+          drawer.style.height = nextExpanded ? 'auto' : '0px';
+          drawer.style.opacity = nextExpanded ? '1' : '0';
+          return;
+        }
+
+        if (nextExpanded) {
+          drawer.hidden = false;
+          const targetHeight = drawer.scrollHeight;
+          animate(
+            drawer,
+            { height: ['0px', `${targetHeight}px`], opacity: [0, 1] },
+            { duration: 0.26, ease: [0.22, 1, 0.36, 1] },
+          ).then(() => {
+            drawer.style.height = 'auto';
+          });
+        } else {
+          const currentHeight = drawer.scrollHeight;
+          animate(
+            drawer,
+            { height: [`${currentHeight}px`, '0px'], opacity: [1, 0] },
+            { duration: 0.2, ease: [0.22, 1, 0.36, 1] },
+          ).then(() => {
+            drawer.hidden = true;
+          });
+        }
+      });
+    });
+  }
+
+  initPracticeIndex();
+</script>

@@ -1,0 +1,222 @@
+<div class="manifold-fullscreen" data-manifold-stage aria-hidden="true">
+  <canvas data-manifold-canvas></canvas>
+</div>
+
+<script>
+  import * as THREE from 'three';
+
+  function initArchitecturalManifold() {
+    const stage = document.querySelector<HTMLElement>('[data-manifold-stage]');
+    const canvas = document.querySelector<HTMLCanvasElement>('[data-manifold-canvas]');
+    if (!stage || !canvas) return;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: true,
+        powerPreference: 'high-performance',
+      });
+    } catch {
+      return;
+    }
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const maxDpr = width < 760 ? 1.5 : 2;
+    const dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
+    renderer.setPixelRatio(dpr);
+    renderer.setSize(width, height, false);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x07070c, 0.055);
+
+    const camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 60);
+    camera.position.set(0, 0.2, 10.5);
+
+    const root = new THREE.Group();
+    const updateRootOffset = (w: number) => {
+      root.position.x = w >= 760 ? 2.1 : 0.4;
+      root.position.y = w >= 760 ? 0.15 : 0.6;
+      root.scale.setScalar(w >= 760 ? 1.18 : 0.85);
+    };
+    updateRootOffset(width);
+    scene.add(root);
+
+    // Classical/Brutalist Monolithic Glass Planes
+    const planeGroup = new THREE.Group();
+    planeGroup.rotation.set(0.42, -0.58, 0.1);
+    root.add(planeGroup);
+
+    const planeGeo = new THREE.BoxGeometry(3.2, 3.2, 0.032);
+    const planeEdgeGeo = new THREE.EdgesGeometry(planeGeo);
+
+    const glassMat = new THREE.MeshPhysicalMaterial({
+      color: 0x100d2e,
+      emissive: 0x110044,
+      emissiveIntensity: 0.42,
+      roughness: 0.1,
+      metalness: 0.08,
+      transmission: 0.65,
+      thickness: 0.5,
+      ior: 1.5,
+      clearcoat: 0.9,
+      transparent: true,
+      opacity: 0.45,
+    });
+
+    const planes: { mesh: THREE.Group; baseZ: number }[] = [];
+    const planeCount = 5;
+    const spacing = 0.58;
+
+    for (let i = 0; i < planeCount; i++) {
+      const z = (i - (planeCount - 1) / 2) * spacing;
+      const layer = new THREE.Group();
+      layer.position.z = z;
+
+      const slab = new THREE.Mesh(planeGeo, glassMat);
+      layer.add(slab);
+
+      const isCenter = i === 2;
+      const edgeMat = new THREE.LineBasicMaterial({
+        color: isCenter ? 0xa58eff : 0x3f00ff,
+        transparent: true,
+        opacity: isCenter ? 0.65 : 0.36,
+      });
+      const edges = new THREE.LineSegments(planeEdgeGeo, edgeMat);
+      layer.add(edges);
+
+      planeGroup.add(layer);
+      planes.push({ mesh: layer, baseZ: z });
+    }
+
+    // Classical Polyhedral Core + Stepped Concentric Ring
+    const coreGeo = new THREE.IcosahedronGeometry(0.85, 0);
+    const coreMat = new THREE.MeshPhysicalMaterial({
+      color: 0x22106a,
+      emissive: 0x3f00ff,
+      emissiveIntensity: 0.5,
+      roughness: 0.08,
+      metalness: 0.18,
+      transmission: 0.55,
+      ior: 1.58,
+      flatShading: true,
+      transparent: true,
+      opacity: 0.82,
+    });
+    const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+    planeGroup.add(coreMesh);
+
+    const coreEdges = new THREE.LineSegments(
+      new THREE.EdgesGeometry(coreGeo),
+      new THREE.LineBasicMaterial({ color: 0xd8ceff, transparent: true, opacity: 0.72 }),
+    );
+    coreMesh.add(coreEdges);
+
+    const ringGeo = new THREE.RingGeometry(1.95, 1.97, 96);
+    const ringMat = new THREE.MeshBasicMaterial({
+      color: 0xa58eff,
+      side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 0.28,
+    });
+    const ring = new THREE.Mesh(ringGeo, ringMat);
+    ring.rotation.x = Math.PI / 2.2;
+    planeGroup.add(ring);
+
+    // Ultramarine Volumetric Glow Lighting
+    const ambient = new THREE.AmbientLight(0xdce0ff, 0.55);
+    scene.add(ambient);
+
+    const keyLight = new THREE.PointLight(0x3f00ff, 18, 20);
+    keyLight.position.set(3.2, 2.5, 4.2);
+    scene.add(keyLight);
+
+    const fillLight = new THREE.PointLight(0x9478ff, 7, 18);
+    fillLight.position.set(-3.2, -2.2, 3.0);
+    scene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0xf4f5f9, 1.3);
+    rimLight.position.set(4, 5, -3);
+    scene.add(rimLight);
+
+    let targetPointerX = 0;
+    let targetPointerY = 0;
+    let smoothPointerX = 0;
+    let smoothPointerY = 0;
+    let scrollProgress = 0;
+    let smoothScroll = 0;
+
+    const renderFrame = () => {
+      renderer.render(scene, camera);
+    };
+
+    if (reducedMotion) {
+      renderFrame();
+      return;
+    }
+
+    const onPointerMove = (e: PointerEvent) => {
+      targetPointerX = (e.clientX / window.innerWidth - 0.5) * 0.34;
+      targetPointerY = (e.clientY / window.innerHeight - 0.5) * 0.24;
+    };
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+
+    const onScroll = () => {
+      const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      scrollProgress = Math.min(window.scrollY / maxScroll, 1);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const onResize = () => {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h, false);
+      updateRootOffset(w);
+    };
+    window.addEventListener('resize', onResize, { passive: true });
+
+    let elapsed = 0;
+    let lastTime = performance.now();
+
+    function tick(now: number) {
+      const dt = Math.min((now - lastTime) / 1000, 0.05);
+      lastTime = now;
+      elapsed += dt;
+
+      smoothPointerX += (targetPointerX - smoothPointerX) * 0.05;
+      smoothPointerY += (targetPointerY - smoothPointerY) * 0.05;
+      smoothScroll += (scrollProgress - smoothScroll) * 0.06;
+
+      // Scroll-driven architectural transformation across the entire page
+      root.position.x = (window.innerWidth >= 760 ? 2.1 : 0.4) - smoothScroll * 1.4;
+      planeGroup.rotation.y =
+        -0.58 + Math.sin(elapsed * 0.16) * 0.08 + smoothPointerX + smoothScroll * 1.15;
+      planeGroup.rotation.x =
+        0.42 + Math.cos(elapsed * 0.14) * 0.05 + smoothPointerY - smoothScroll * 0.35;
+
+      const expand = 1 + smoothScroll * 0.75 + Math.sin(elapsed * 0.38) * 0.04;
+      for (const p of planes) {
+        p.mesh.position.z = p.baseZ * expand;
+      }
+
+      coreMesh.rotation.y += dt * 0.26;
+      coreMesh.rotation.x += dt * 0.12;
+      ring.rotation.z -= dt * 0.09;
+
+      renderFrame();
+      requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  initArchitecturalManifold();
+</script>

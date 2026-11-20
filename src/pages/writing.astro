@@ -1,0 +1,191 @@
+---
+import Base from '../layouts/Base.astro';
+import { PROFILE } from '../data/career';
+import writingCache from '../data/writing_cache.json';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
+
+interface WritingEntry {
+  title: string;
+  date: string;
+  url: string;
+  source: string;
+  summary: string;
+}
+
+function decodeXmlEntities(input: string): string {
+  return input
+    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function extractTag(block: string, tag: string): string {
+  const match = block.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'i'));
+  return match ? decodeXmlEntities(match[1]) : '';
+}
+
+function formatDate(raw: string): string {
+  const parsed = new Date(raw);
+  if (Number.isNaN(parsed.getTime())) return raw;
+  return parsed.toISOString().slice(0, 10);
+}
+
+async function loadSubstackFeed(): Promise<{ entries: WritingEntry[]; live: boolean }> {
+  const feedUrl = 'https://jankrloz.substack.com/feed';
+  try {
+    const response = await fetch(feedUrl, {
+      signal: AbortSignal.timeout(4000),
+      headers: {
+        Accept: 'application/rss+xml, application/xml, text/xml',
+        'User-Agent': 'jankrloz-hub-astro-build/1.0',
+      },
+    });
+    if (!response.ok) {
+      return { entries: writingCache, live: false };
+    }
+    const xml = await response.text();
+    const itemMatches = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/gi)];
+    if (itemMatches.length === 0) {
+      return { entries: writingCache, live: false };
+    }
+
+    const parsed: WritingEntry[] = itemMatches
+      .map((m) => {
+        const block = m[1];
+        const title = extractTag(block, 'title');
+        const url = extractTag(block, 'link');
+        const pubDate = extractTag(block, 'pubDate');
+        const description = extractTag(block, 'description');
+        return {
+          title,
+          date: formatDate(pubDate),
+          url,
+          source: 'Substack',
+          summary: description.length > 240 ? `${description.slice(0, 237)}...` : description,
+        };
+      })
+      .filter((entry) => entry.title && entry.url);
+
+    return parsed.length > 0 ? { entries: parsed, live: true } : { entries: writingCache, live: false };
+  } catch {
+    return { entries: writingCache, live: false };
+  }
+}
+
+const { entries, live } = await loadSubstackFeed();
+---
+
+<Base
+  title={`Writing — ${PROFILE.displayName} (${PROFILE.alias})`}
+  description="Architecture essays and engineering notes on distributed systems, DDD, and platform engineering."
+>
+  <article class="pt-14">
+    <header class="border-b border-white/20 pb-10" data-motion-hero>
+      <div class="mb-3 flex flex-wrap items-center gap-3">
+        <Badge variant="default">Substack</Badge>
+        <Badge variant="outline">{live ? 'Live RSS Feed' : 'Cached Snapshot'}</Badge>
+      </div>
+      <h1 class="font-[var(--font-display)] text-[clamp(2.4rem,5.2vw,3.85rem)] font-normal leading-[1.02] tracking-[-0.025em] text-[#f4f5f9]">
+        Writing &amp; Essays
+      </h1>
+      <p class="mt-5 max-w-[62ch] font-[var(--font-display)] text-[1.22rem] leading-[1.6] text-[#cbd0df]">
+        Technical notes on domain boundaries, event-driven architecture, and internal developer
+        platforms.
+      </p>
+    </header>
+
+    <section class="monograph-section" data-motion-section>
+      <aside class="section-rail">
+        <div class="rail-roman" aria-hidden="true">I</div>
+        <h2 class="rail-title">Published</h2>
+        <div class="rail-meta">
+          {entries.length} {entries.length === 1 ? 'Essay' : 'Essays'} · jankrloz.substack.com
+        </div>
+      </aside>
+
+      <div class="flex flex-col gap-5">
+        {
+          entries.map((entry, idx) => (
+            <Card className="hover:border-[#a58eff]/40 hover:bg-[#141424]/75">
+              <CardHeader>
+                <div class="mb-2 flex flex-wrap items-center justify-between gap-2">
+                  <span class="font-[var(--font-mono)] text-xs text-[#a58eff] tabular-nums">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <div class="flex items-center gap-2">
+                    <Badge variant="secondary">{entry.source}</Badge>
+                    <span class="font-[var(--font-mono)] text-xs text-[#8e94ad] tabular-nums">
+                      {entry.date}
+                    </span>
+                  </div>
+                </div>
+                <CardTitle>
+                  <a
+                    href={entry.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[#f4f5f9] no-underline transition-colors hover:text-[#a58eff]"
+                  >
+                    {entry.title}
+                  </a>
+                </CardTitle>
+              </CardHeader>
+
+              {entry.summary && (
+                <CardContent>
+                  <CardDescription className="font-[var(--font-display)] text-[1.06rem] leading-[1.62] text-[#cbd0df]">
+                    {entry.summary}
+                  </CardDescription>
+                </CardContent>
+              )}
+
+              <CardFooter className="justify-between">
+                <span class="font-[var(--font-mono)] text-xs text-[#8e94ad]">
+                  jankrloz.substack.com
+                </span>
+                <a
+                  href={entry.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-[var(--font-mono)] text-xs text-[#a58eff] underline-offset-4 hover:text-[#f4f5f9] hover:underline"
+                >
+                  Read Essay ↗
+                </a>
+              </CardFooter>
+            </Card>
+          ))
+        }
+      </div>
+    </section>
+
+    <Separator className="my-2" />
+
+    <footer class="colophon">
+      <div class="colophon-note">{PROFILE.location} · {PROFILE.alias}</div>
+      <div class="colophon-links">
+        <a href="https://jankrloz.substack.com" target="_blank" rel="noopener noreferrer">
+          jankrloz.substack.com
+        </a>
+        <a href={PROFILE.github} target="_blank" rel="noopener noreferrer">github.com/jankrloz</a>
+        <a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer">
+          linkedin.com/in/jankrloz
+        </a>
+      </div>
+    </footer>
+  </article>
+</Base>

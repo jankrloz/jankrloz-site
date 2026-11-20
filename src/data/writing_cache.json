@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Application Services VS Domain Services in DDD",
+    "date": "2025-03-07",
+    "url": "https://jankrloz.substack.com/p/application-services-vs-domain-services",
+    "source": "Substack",
+    "summary": "Clarifying the boundary between orchestration in application services and pure domain logic in domain services within Domain-Driven Design."
+  }
+]

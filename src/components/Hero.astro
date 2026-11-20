@@ -1,0 +1,16 @@
+---
+import { PROFILE } from '../data/career';
+---
+
+<section class="hero-stage" data-motion-hero>
+  <div class="hero-content">
+    <div class="hero-alias">{PROFILE.alias} · {PROFILE.location}</div>
+    <h1 class="hero-name">{PROFILE.displayName}</h1>
+    <div class="hero-role">{PROFILE.role}</div>
+    <p class="hero-thesis">{PROFILE.thesis}</p>
+    <a href="#practice" class="hero-scroll-cue">
+      <span>Selected Practice</span>
+      <span aria-hidden="true">↓</span>
+    </a>
+  </div>
+</section>

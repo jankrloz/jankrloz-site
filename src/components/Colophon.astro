@@ -1,0 +1,14 @@
+---
+import { PROFILE } from '../data/career';
+---
+
+<footer class="colophon" data-motion-section>
+  <div>
+    <div class="colophon-note">{PROFILE.education}</div>
+  </div>
+  <div class="colophon-links">
+    <a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>
+    <a href={PROFILE.github} target="_blank" rel="noopener noreferrer">github.com/jankrloz</a>
+    <a href={PROFILE.cvPdf} download>CV (PDF)</a>
+  </div>
+</footer>

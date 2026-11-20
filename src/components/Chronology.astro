@@ -1,0 +1,30 @@
+---
+import { CHRONOLOGY } from '../data/career';
+---
+
+<section class="monograph-section" aria-labelledby="chronology-heading" data-motion-section>
+  <aside class="section-rail">
+    <div class="rail-roman" aria-hidden="true">IV</div>
+    <h2 class="rail-title" id="chronology-heading">Chronology</h2>
+    <div class="rail-meta">Career Progression · 2015–Present</div>
+  </aside>
+
+  <ul class="chronology-list">
+    {
+      CHRONOLOGY.map((item) => (
+        <li class="chrono-item">
+          <div class="chrono-row">
+            <span class="item-num" aria-hidden="true">
+              {item.index}
+            </span>
+            <span class="item-title-wrap">
+              <span class="item-title">{item.role}</span>
+              <span class="item-sub">{item.organization}</span>
+            </span>
+            <span class="item-meta">{item.tenure}</span>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>
