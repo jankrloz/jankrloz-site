@@ -42,7 +42,7 @@ export const PROFILE = {
   cvPdf: '/JuanCarlosNavarrete_CV.pdf',
   cvHtml: '/cv/',
   thesis:
-    'Designing enterprise AI gateways, MLOps platforms, AI-native engineering lifecycles, internal developer platforms, and AWS Well-Architected cloud foundations for regulated financial systems.',
+    '11+ years designing enterprise AI gateways, MLOps platforms, AI-DLC harnesses, and AWS Well-Architected cloud foundations—leading teams, cross-functional initiatives, and org-wide architecture strategies directly and indirectly.',
   education: 'Computer Systems Engineering — IPN · ESCOM (2012–2016)',
 } as const;
 
