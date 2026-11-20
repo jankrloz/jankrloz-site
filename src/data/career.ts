@@ -145,6 +145,15 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
     items: [
       {
         index: '09',
+        title: 'harness-control — AI Harness Control Plane',
+        categoryLabel: 'Open Source · AI Tooling',
+        meta: 'TypeScript · Tauri v2 · 100% Local',
+        summary:
+          'Created a 100% local unified control plane (Desktop, Web, TUI, CLI) for AI coding harness skills, primitives, sessions, and token telemetry across Claude Code, Cursor, Codex, and Gemini CLI with manager-delegated lifecycle actions.',
+        outcome: 'Published at github.com/jankrloz/harness-control.',
+      },
+      {
+        index: '10',
         title: 'Vanguard — Supply-Chain Security Orchestrator',
         categoryLabel: 'Open Source · Security',
         meta: 'OSV.dev · Polyglot CLI',
@@ -153,7 +162,7 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         outcome: 'Published at github.com/jankrloz/vanguard.',
       },
       {
-        index: '10',
+        index: '11',
         title: 'AWS Summit Mexico City 2024',
         categoryLabel: 'Public Speaking · Live Demo',
         meta: 'Featured Showcase',
