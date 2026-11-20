@@ -84,13 +84,13 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
       },
       {
         index: '04',
-        title: 'IDP, Golden Paths, Events SDK & CI/CD',
-        categoryLabel: 'Platform Engineering · Founded & Built',
-        meta: 'CLI · Templates · Kafka',
+        title: 'IDP, Software Catalog & Golden Paths',
+        categoryLabel: 'Platform Engineering · Designed & Leading',
+        meta: 'CMDB · Scorecards · CI/CD',
         summary:
-          'Defined and built initial Golden Paths, IDP foundations, internal CLI, CI/CD standardization, Clean & Hexagonal workspace templates, and the Events SDK standardizing event-driven architecture on Kafka.',
+          'Designed end-to-end and leading (as Architecture) cross-team implementation of a unified CMDB, Software Catalog, and Maturity Scorecards platform (in progress); defined and built initial Golden Paths, IDP foundations, internal CLI, CI/CD, Clean/Hexagonal workspace templates, and the Kafka Events SDK.',
         outcome:
-          'Established repeatable self-service delivery and consistent API/Events conventions.',
+          'Aligned repeatable self-service delivery with service ownership, scorecards, and audit readiness.',
       },
       {
         index: '05',
