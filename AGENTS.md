@@ -11,8 +11,12 @@ This repository is **PUBLIC**. Every file, route, comment, and commit is publicl
 - **Allowed Scope Only:**
   - Public monograph (`/`), public CV (`/cv/`), public writing feed (`/writing/`), and sanitized public PDF (`public/JuanCarlosNavarrete_CV.pdf`).
 - **Strictly Prohibited:**
-  - Keep this repository strictly self-contained: never add non-public pages, internal workflows, internal company project codenames, internal document/ticket IDs, external contractor engagements, or non-public financials.
+  - Keep this repository strictly self-contained: never add non-public pages, internal workflows, internal company project codenames or initiative terms, internal document/ticket IDs, counts of internal design docs/ADRs/reviews, external contractor engagements, or non-public financials.
   - Never import or reference paths outside this repository root.
+- **Narrative & Attribution Rules:**
+  - Distinguish **founded/built**, **defined & co-led cross-team**, and **contributed strategy/decisions** accurately; state tenure accurately (`11+ years` engineering, `~4 years` architecture leadership) and frame regulated scope as `banking-license readiness` (never licensed banking or plural financial institutions).
+  - Apply `unslop`, `stop-slop`, and `humanizer` rules to all copy (no em dashes, active voice, plain verbs).
+  - Keep `src/data/career.ts`, `src/pages/cv.astro`, and `public/JuanCarlosNavarrete_CV.pdf` in sync.
 
 ---
 

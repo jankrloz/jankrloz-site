@@ -223,9 +223,9 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         index: '07',
         title: 'PCI-DSS Isolation and Multi-Region DRP Strategy',
         categoryLabel: 'Cloud Resilience · Strategy and Decisions',
-        meta: 'PCI-DSS · 3 Regions · Criticality',
+        meta: 'PCI-DSS · Active-Active & Warm Stand-By',
         summary:
-          'Defined target PCI-DSS CDE isolation strategy and AWS Well-Architected boundaries for payments spin-off and audit readiness. Contributed to DRP strategy, AWS region standardization decisions, multi-region replication design, and workload criticality tiers for 200+ TB across three regions.',
+          'Defined target PCI-DSS CDE isolation strategy and AWS Well-Architected boundaries for regulated payment-entity isolation and audit readiness. Contributed to DRP strategy, AWS region standardization decisions, multi-region replication design, and workload criticality tiers (active-active & warm stand-by).',
         outcome: 'Established regulatory readiness and clear multi-region replication governance.',
         stack: [
           'PCI-DSS',
